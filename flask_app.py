@@ -51,7 +51,14 @@ def process():
 
     generated = model(tensor_img, mode='inference')
     print ('generated_image:', generated.shape)
+    x = generated.permute(1, 2, 0).numpy()
+    bi = torchvision.transforms.ToPILImage()(x)
 
+    imgByteArr = io.BytesIO()
+    bi.save(imgByteArr, format='PNG')
+    return send_file(imgByteArr,
+                         attachment_filename='logo.png',
+                         mimetype='image/png')
     return str(generated.shape)
 
 
