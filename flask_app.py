@@ -25,8 +25,6 @@ import json
 
 app = Flask(__name__)
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
 
 @app.route('/api/process', methods=['POST'])
 def process():
@@ -704,3 +702,5 @@ def patch_replication_callback(data_parallel):
     data_parallel.replicate = new_replicate
 
 
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000, debug=True)
