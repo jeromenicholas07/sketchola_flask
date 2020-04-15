@@ -23,7 +23,7 @@ except ImportError:
 from flask import Flask, request, Response
 import json
 
-app = flask.Flask(__name__)
+app = Flask(__name__)
 
 
 @app.route('/api/process', methods=['POST'])
