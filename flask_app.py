@@ -26,7 +26,7 @@ import json
 app = Flask(__name__)
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=False)
+    app.run(host="0.0.0.0", port=5000, debug=True)
 
 @app.route('/api/process', methods=['POST'])
 def process():
@@ -36,7 +36,7 @@ def process():
         'load_size': 256,
         'aspect_ratio': 1.0,
         'isTrain': False,
-        'checkpoints_dir': '/content/drive/My Drive/be proj/coco_pretrained',
+        'checkpoints_dir': '/',
         'which_epoch': 'latest',
         'use_gpu': False,
         'no_instance': False,
