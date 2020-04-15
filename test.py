@@ -3,6 +3,7 @@
 
 from flask import Flask, request, Response
 import json
+import numpy
 
 app = Flask(__name__)
 
