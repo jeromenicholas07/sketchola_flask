@@ -47,8 +47,9 @@ def process():
 
     encodedImg = np.array(json.loads(request.form.get('data')))
     img = np.reshape(encodedImg, (1, 1, 256, 256))
+    tensor_img = torch.from_numpy(img)
 
-    generated = model(img, mode='inference')
+    generated = model(tensor_img, mode='inference')
     print ('generated_image:', generated.shape)
 
     return str(generated.shape)
