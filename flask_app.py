@@ -51,7 +51,7 @@ def process():
 
     generated = model(tensor_img, mode='inference')
     print ('generated_image:', generated.shape)
-    x = generated.permute(1, 2, 0).numpy()
+    x = generated.permute(0, 2, 3, 1).numpy()[0]
     bi = torchvision.transforms.ToPILImage()(x)
 
     imgByteArr = io.BytesIO()
