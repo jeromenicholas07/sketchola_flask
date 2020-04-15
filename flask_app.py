@@ -22,6 +22,7 @@ except ImportError:
     ReduceAddCoalesced = Broadcast = None
 
 from flask import Flask, request, Response
+from flask import send_file
 import json
 
 app = Flask(__name__)
