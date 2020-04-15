@@ -35,7 +35,7 @@ def process():
         'load_size': 256,
         'aspect_ratio': 1.0,
         'isTrain': False,
-        'checkpoints_dir': '/',
+        'checkpoints_dir': '/home/jeromenicholas07/sketchola_flask/',
         'which_epoch': 'latest',
         'use_gpu': False,
         'no_instance': False,
