@@ -30,6 +30,7 @@ if __name__ == "__main__":
 
 @app.route('/api/process', methods=['POST'])
 def process():
+    print("inside process fn")
     opt = {  # num classes in coco model
         'label_nc': 184,
         'crop_size': 256,
