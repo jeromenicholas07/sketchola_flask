@@ -10,6 +10,7 @@ import os
 import torch
 import torch.nn as nn
 import base64
+import torchvision
 
 import torch.nn.functional as F
 from torch.nn import init
@@ -57,9 +58,8 @@ def process():
     imgByteArr = io.BytesIO()
     bi.save(imgByteArr, format='PNG')
     return send_file(imgByteArr,
-                         attachment_filename='logo.png',
+                         attachment_filename='op.png',
                          mimetype='image/png')
-    return str(generated.shape)
 
 
 class _SynchronizedBatchNorm(_BatchNorm):
