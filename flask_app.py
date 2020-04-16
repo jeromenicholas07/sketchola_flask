@@ -55,7 +55,7 @@ def process():
     print ('generated_image:', generated.shape)
 
     normalized_img = ((generated.reshape([3, 256, 256]) + 1) / 2.0) * 255.0
-    output_img = ToPILImage()(normalized_img.byte().cpu())
+    output_img = torchvision.transforms.ToPILImage()(normalized_img.byte().cpu())
 
     imgByteArr = io.BytesIO()
     output_img.save(imgByteArr, format='JPEG')
