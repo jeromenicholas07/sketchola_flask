@@ -58,6 +58,7 @@ def process():
 
     imgByteArr = io.BytesIO()
     bi.save(imgByteArr, format='PNG')
+    imgByteArr.seek(0)
     return send_file(imgByteArr,
                          attachment_filename='op.png',
                          mimetype='image/png')
