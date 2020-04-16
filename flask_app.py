@@ -53,11 +53,12 @@ def process():
 
     generated = model(tensor_img, mode='inference')
     print ('generated_image:', generated.shape)
-    x = generated.permute(0, 2, 3, 1)[0]
-    bi = torchvision.transforms.ToPILImage()(x)
+
+    normalized_img = ((generated.reshape([3, 256, 256]) + 1) / 2.0) * 255.0
+    output_img = ToPILImage()(normalized_img.byte().cpu())
 
     imgByteArr = io.BytesIO()
-    bi.save(imgByteArr, format='JPEG')
+    output_img.save(imgByteArr, format='JPEG')
     imgByteArr.seek(0)
     return send_file(imgByteArr,
                          mimetype='image/jpeg')
