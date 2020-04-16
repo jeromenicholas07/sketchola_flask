@@ -57,11 +57,10 @@ def process():
     bi = torchvision.transforms.ToPILImage()(x)
 
     imgByteArr = io.BytesIO()
-    bi.save(imgByteArr, format='PNG')
+    bi.save(imgByteArr, format='JPEG')
     imgByteArr.seek(0)
     return send_file(imgByteArr,
-                         attachment_filename='op.png',
-                         mimetype='image/png')
+                         mimetype='image/jpeg')
 
 
 class _SynchronizedBatchNorm(_BatchNorm):
